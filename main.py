@@ -130,7 +130,7 @@ class Root:
         dataRec = data['action']
         mc.initialSetup()
         if(pc.checkObs()):
-            os.system("espeak 'Obstacle Detected!'")
+            os.system("echo 'Obstacle Detected!' | festival --tts ")
             exit
         if (dataRec != ""):
             if(dataRec == "dir:up"):

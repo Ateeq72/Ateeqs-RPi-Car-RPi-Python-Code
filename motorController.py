@@ -16,13 +16,15 @@ m2_epin = 21
 def initialSetup():
    gpio.setmode(gpio.BCM)
 
+   gpio.setwarnings(False)
+
    gpio.setup(m1_epin,gpio.OUT)
    gpio.setup(m2_epin,gpio.OUT)
+
    gpio.setup(IC1_A, gpio.OUT)
    gpio.setup(IC1_B, gpio.OUT)
    gpio.setup(IC2_A, gpio.OUT)
    gpio.setup(IC2_B, gpio.OUT)
-
 
    p1 = gpio.PWM(m1_epin,100)
    p2 = gpio.PWM(m2_epin,100)
