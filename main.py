@@ -39,7 +39,7 @@ class Root:
                         width: 50%;
                         background: rgba(0, 0, 255, 0.1);
                     }
-                    #debugR {
+                    #showStatus {
                         position: absolute;
                         right: 0;
                         top: 0;
@@ -60,6 +60,7 @@ class Root:
             <body>
             <div id="left"></div>
             <div id="right"></div>
+            <div id="showStatus"></div>
             <script src="./node_modules/nipplejs/dist/nipplejs.js"></script>
             <script src="./node_modules/jquery/dist/jquery.js"></script>
             <script>
@@ -84,6 +85,7 @@ class Root:
                         var dataToSend = {};
                         dataToSend['action'] = evt.type;
                         jQuery.post('/doStuffHandler',dataToSend);
+                        $('#showStatus').html('Status :'+evt.type);
                         //console.log(data);
                     }).on('move', function (evt, data) {
                         //console.log(data);
@@ -92,6 +94,7 @@ class Root:
                                 var dataToSend = {};
                                 dataToSend['action'] = data.direction.y;
                                 jQuery.post('/doStuffHandler',dataToSend);
+				                $('#showStatus').html('Status :'+data.direction.y);
                                 console.log('LJS : '+evt.type);
                             }
                     ).on('pressure', function (evt, data) {
@@ -103,6 +106,7 @@ class Root:
                         var dataToSend = {};
                         dataToSend['action'] = evt.type;
                         jQuery.post('/doStuffHandler',dataToSend);
+                        $('#showStatus').html('Status :'+evt.type);
                        // console.log(data);
                     }).on('move', function (evt, data) {
                        // console.log(data);
@@ -111,6 +115,7 @@ class Root:
                                 var dataToSend = {};
                                 dataToSend['action'] = data.direction.x;
                                jQuery.post('/doStuffHandler',dataToSend);
+                               $('#showStatus').html('Status :'+data.direction.x);
                                 console.log('RJS : '+evt.type);
                             }
                     ).on('pressure', function (evt, data) {
